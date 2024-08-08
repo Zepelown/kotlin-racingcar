@@ -12,7 +12,8 @@ class CarRacingGameController {
     fun startGame(){
         consoleOutputView.printCarNameInputMessage()
         val carNames = consoleInputView.getCarNames()
-        consoleOutputView.printCarRacingRoundCountMeesage()
+        consoleOutputView.printCarRacingRoundCountMesage()
+        val gameRoundCount = consoleInputView.getCarRacingRoundCount()
         carRacingGame = CarRacingGame(carNames)
     }
 }
