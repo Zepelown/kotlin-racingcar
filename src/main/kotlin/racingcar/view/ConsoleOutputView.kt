@@ -1,6 +1,5 @@
 package racingcar.view
 
-import racingcar.model.CarRacingGameResult
 import racingcar.model.CarRacingGameRoundResult
 
 
@@ -13,22 +12,19 @@ class ConsoleOutputView {
         println("시도할 횟수는 몇 회인가요?")
     }
 
-    fun printCarRacingGameResult(gameResults : List<CarRacingGameResult>){
+    fun printCarRacingGameResult(roundResults : List<CarRacingGameRoundResult>){
         println("실행 결과")
-        gameResults.forEach { result ->
-            printGameRoundResult(result.carRacingGameRoundResult)
+        roundResults.forEach {
+            it.getResult().forEach { (carName, location) ->
+                println("${carName} : ${"-".repeat(location)}")
+            }
             println()
         }
     }
 
     fun printCarRacingGameWinners(winners: List<String>){
         print("최종 우승자 : ")
-        print(winners.joinToString(separator = ","))
+        print(winners.joinToString(separator = ", "))
     }
 
-    private fun printGameRoundResult(roundResult: CarRacingGameRoundResult) {
-        roundResult.getResult().forEach { (carName, location) ->
-            println("${carName} : ${"-".repeat(location)}")
-        }
-    }
 }

@@ -3,8 +3,10 @@ package racingcar.model
 import racingcar.util.RandomNumberGenerator
 
 class CarRacingGameRoundResult(
+    val round : Int,
     private val carNames : List<Car>
 ) {
+
     private val roundResult : HashMap<String, Int> = hashMapOf()
 
     init {
