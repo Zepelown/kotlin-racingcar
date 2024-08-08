@@ -3,15 +3,15 @@ package racingcar.model
 class Car(
     private val _carName : String?
 ) {
+    private var carLocation : Int = 0
     val carName : String get() = _carName!!
 
-    private var carLocation : Int = 0
     init {
         require(validateCarName())
     }
 
     fun move(){
-        ++carLocation
+        carLocation++
     }
 
     fun getLocation() = carLocation

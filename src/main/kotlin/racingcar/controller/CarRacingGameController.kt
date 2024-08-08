@@ -7,7 +7,6 @@ import racingcar.view.ConsoleOutputView
 class CarRacingGameController {
     private val consoleInputView : ConsoleInputView = ConsoleInputView()
     private val consoleOutputView : ConsoleOutputView = ConsoleOutputView()
-    private var carRacingGame : CarRacingGame? = null
 
     fun startGame(){
         consoleOutputView.printCarNameInputMessage()
@@ -15,10 +14,10 @@ class CarRacingGameController {
         consoleOutputView.printCarRacingRoundCountMessage()
 
         val gameRoundCount = consoleInputView.getCarRacingRoundCount()
-        carRacingGame = CarRacingGame(carNames, gameRoundCount)
+        val carRacingGame = CarRacingGame(carNames, gameRoundCount)
 
-        val gameResults = carRacingGame!!.calculateRoundResult()
+        val gameResults = carRacingGame.calculateRoundResult()
         consoleOutputView.printCarRacingGameResult(gameResults)
-        consoleOutputView.printCarRacingGameWinners(carRacingGame!!.getWinners()!!)
+        consoleOutputView.printCarRacingGameWinners(carRacingGame.getWinners() ?: emptyList())
     }
 }
