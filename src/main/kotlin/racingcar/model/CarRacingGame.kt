@@ -14,6 +14,15 @@ class CarRacingGame(
         initSetting()
     }
 
+    public fun calculateResult() : List<CarRacingGameResult>{
+        val carRacingGameResults : MutableList<CarRacingGameResult> = mutableListOf()
+        for (i in 1 .. maxGameRound.carGameMaxRound){
+            val roundResult = CarRacingGameRoundResult(cars)
+            carRacingGameResults.add(CarRacingGameResult(i, roundResult))
+        }
+        return carRacingGameResults
+    }
+
     private fun initSetting(){
         carNames?.forEach {
             val car = Car(it)

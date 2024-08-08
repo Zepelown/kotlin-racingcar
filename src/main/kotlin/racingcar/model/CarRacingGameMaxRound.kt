@@ -1,6 +1,6 @@
 package racingcar.model
 
-data class CarRacingGameMaxRound(
+class CarRacingGameMaxRound(
     private val carGameRoundCountInput: String?
 ) {
     val carGameMaxRound: Int
