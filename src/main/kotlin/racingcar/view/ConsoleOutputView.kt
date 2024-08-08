@@ -21,6 +21,11 @@ class ConsoleOutputView {
         }
     }
 
+    fun printCarRacingGameWinners(winners: List<String>){
+        print("최종 우승자 : ")
+        print(winners.joinToString(separator = ","))
+    }
+
     private fun printGameRoundResult(roundResult: CarRacingGameRoundResult) {
         roundResult.getResult().forEach { (carName, location) ->
             println("${carName} : ${"-".repeat(location)}")

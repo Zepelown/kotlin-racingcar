@@ -7,19 +7,27 @@ class CarRacingGame(
     private val cars : MutableList<Car> = mutableListOf()
 
     private val maxGameRound : CarRacingGameMaxRound = CarRacingGameMaxRound(gameRound)
-
+    private val carRacingGameResults : MutableList<CarRacingGameResult> = mutableListOf()
 
     init {
         initSetting()
     }
 
-    public fun calculateResult() : List<CarRacingGameResult>{
-        val carRacingGameResults : MutableList<CarRacingGameResult> = mutableListOf()
+    fun calculateRoundResult() : List<CarRacingGameResult>{
         for (i in 1 .. maxGameRound.carGameMaxRound){
             val roundResult = CarRacingGameRoundResult(cars)
             carRacingGameResults.add(CarRacingGameResult(i, roundResult))
         }
         return carRacingGameResults
+    }
+
+    fun getWinners() : List<String>?{
+        carRacingGameResults.forEach {
+            if (it.round == maxGameRound.carGameMaxRound){
+                return it.carRacingGameRoundResult.getWinners()
+            }
+        }
+        return null
     }
 
     private fun initSetting(){

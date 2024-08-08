@@ -13,10 +13,12 @@ class CarRacingGameController {
         consoleOutputView.printCarNameInputMessage()
         val carNames = consoleInputView.getCarNames()
         consoleOutputView.printCarRacingRoundCountMessage()
+
         val gameRoundCount = consoleInputView.getCarRacingRoundCount()
         carRacingGame = CarRacingGame(carNames, gameRoundCount)
-        val gameResults = carRacingGame!!.calculateResult()
 
+        val gameResults = carRacingGame!!.calculateRoundResult()
         consoleOutputView.printCarRacingGameResult(gameResults)
+        consoleOutputView.printCarRacingGameWinners(carRacingGame!!.getWinners()!!)
     }
 }

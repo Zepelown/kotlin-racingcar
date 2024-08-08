@@ -18,4 +18,11 @@ class CarRacingGameRoundResult(
     }
 
     fun getResult() = roundResult.toMap()
+
+    fun getWinners(): List<String>{
+        val maxValue = roundResult.values.maxOrNull() ?: return emptyList()
+        return roundResult.entries
+            .filter { it.value == maxValue }
+            .map { it.key }
+    }
 }
