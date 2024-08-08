@@ -4,9 +4,17 @@ class Car(
     private val _carName : String?
 ) {
     val carName : String get() = _carName!!
+
+    private var carLocation : Int = 0
     init {
         require(validateCarName())
     }
+
+    fun move(){
+        ++carLocation
+    }
+
+    fun getLocation() = carLocation
 
     private fun validateCarName(): Boolean {
         if (_carName.isNullOrBlank()) {

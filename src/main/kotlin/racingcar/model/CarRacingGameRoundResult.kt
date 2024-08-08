@@ -9,7 +9,13 @@ class CarRacingGameRoundResult(
 
     init {
         carNames.forEach {
-            roundResult.set(it.carName,RandomNumberGenerator.generate())
+            val randomNumber = RandomNumberGenerator.generate()
+            if (randomNumber >= 4){
+                it.move()
+            }
+            roundResult[it.carName] = it.getLocation()
         }
     }
+
+    fun getResult() = roundResult.toMap()
 }
