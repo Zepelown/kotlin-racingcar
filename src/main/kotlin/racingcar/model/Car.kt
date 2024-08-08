@@ -15,6 +15,6 @@ data class Car(
     }
 
     private fun isAllAlphabetic(): Boolean {
-        return carName?.all { it.isLetter() } ?: false
+        return carName?.all { it in 'a'..'z' || it in 'A'..'Z'} ?: false
     }
 }
