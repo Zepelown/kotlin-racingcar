@@ -1,6 +1,7 @@
 package racingcar.view
 
 import racingcar.model.CarRacingGameResult
+import racingcar.model.CarRacingGameRoundResult
 
 
 class ConsoleOutputView {
@@ -14,15 +15,15 @@ class ConsoleOutputView {
 
     fun printCarRacingGameResult(gameResults : List<CarRacingGameResult>){
         println("실행 결과")
-        gameResults.forEach {
-            it.carRacingGameRoundResult.getResult().forEach { carName, location ->
-                print("$carName : ")
-                for (i in 1 .. location){
-                    print("-")
-                }
-                println()
-            }
+        gameResults.forEach { result ->
+            printGameRoundResult(result.carRacingGameRoundResult)
             println()
+        }
+    }
+
+    private fun printGameRoundResult(roundResult: CarRacingGameRoundResult) {
+        roundResult.getResult().forEach { (carName, location) ->
+            println("${carName} : ${"-".repeat(location)}")
         }
     }
 }
