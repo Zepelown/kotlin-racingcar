@@ -1,7 +1,7 @@
 package racingcar.model
 
-class Car(
-    private val carName : String?
+data class Car(
+    val carName : String?
 ) {
     init {
         require(validateCarName())
