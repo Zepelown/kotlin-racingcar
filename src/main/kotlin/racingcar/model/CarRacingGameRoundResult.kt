@@ -10,12 +10,13 @@ class CarRacingGameRoundResult(
     private val roundResult : HashMap<String, Int> = hashMapOf()
 
     init {
-        carNames.forEach {
+        carNames.forEach {car ->
             val randomNumber = RandomNumberGenerator.generate()
             if (randomNumber >= 4){
-                it.move()
+                car.move()
             }
-            roundResult[it.carName] = it.getLocation()
+            roundResult[car.carName] = car.carLocation
+
         }
     }
 

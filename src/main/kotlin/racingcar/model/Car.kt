@@ -3,7 +3,12 @@ package racingcar.model
 class Car(
     private val _carName : String?
 ) {
-    private var carLocation : Int = 0
+    private var _carLocation : Int = 0
+    var carLocation : Int
+        get() = _carLocation
+        private set(newValue){
+            _carLocation = newValue
+        }
     val carName : String get() = _carName!!
 
     init {
@@ -13,8 +18,6 @@ class Car(
     fun move(){
         carLocation++
     }
-
-    fun getLocation() = carLocation
 
     private fun validateCarName(): Boolean {
         if (_carName.isNullOrBlank()) {
