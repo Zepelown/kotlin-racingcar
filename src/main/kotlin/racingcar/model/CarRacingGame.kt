@@ -2,7 +2,7 @@ package racingcar.model
 
 class CarRacingGame(
     private val cars : List<Car>,
-    private val gameRound : String?
+    private val gameRound : String
 ) {
 
     private val maxGameRound : CarRacingGameMaxRound = CarRacingGameMaxRound(gameRound)

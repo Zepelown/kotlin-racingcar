@@ -4,5 +4,5 @@ class ConsoleInputView {
     fun getCarNames() : List<String> = readln().split(",")
 
 
-    fun getCarRacingRoundCount() : String? = readLine()
+    fun getCarRacingRoundCount() : String = readln()
 }

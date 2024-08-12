@@ -1,17 +1,15 @@
 package racingcar.model
 
 class CarRacingGameMaxRound(
-    private val carGameRoundCountInput: String?
+    private val carGameMaxRoundInput: String
 ) {
-    val carGameMaxRound: Int
+    val carGameMaxRound: Int = carGameMaxRoundInput.toIntOrNull() ?: 0
 
     init {
-        require(validateMaxRound())
-        carGameMaxRound = carGameRoundCountInput?.toIntOrNull() ?: 0
+        require(validateCarGameMaxRound())
     }
 
-    private fun validateMaxRound(): Boolean {
-        val roundCount = carGameRoundCountInput?.toIntOrNull()
-        return roundCount != null && roundCount > 0
+    private fun validateCarGameMaxRound(): Boolean {
+        return carGameMaxRound > 0
     }
 }
