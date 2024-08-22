@@ -2,6 +2,7 @@ package racingcar.controller
 
 import racingcar.model.Car
 import racingcar.model.CarRacingGameFactory
+import racingcar.model.game.CarRacingGameMaxRound
 import racingcar.view.ConsoleErrorView
 import racingcar.view.ConsoleInputView
 import racingcar.view.ConsoleOutputView
@@ -15,8 +16,7 @@ class CarRacingGameController {
     fun startGame(){
         val cars = createCarsFromInput()
 
-        consoleOutputView.printCarRacingRoundCountMessage()
-        val gameMaxRound = carRacingGameFactory.createGameMaxRound(consoleInputView.getCarRacingRoundCount())
+        val gameMaxRound = createGameMaxRoundFromInput()
         val carRacingGame = carRacingGameFactory.createCarRacingGame(cars, gameMaxRound)
 
         val gameResults = carRacingGame.calculateRoundResult()
@@ -36,6 +36,18 @@ class CarRacingGameController {
             createCarsFromInput()
         }
         return cars
+    }
+
+    private fun createGameMaxRoundFromInput() : CarRacingGameMaxRound {
+        while (true){
+            try {
+                consoleOutputView.printCarRacingRoundCountMessage()
+                return carRacingGameFactory.createGameMaxRound(consoleInputView.getCarRacingRoundCount())
+            } catch (e : IllegalArgumentException){
+                consoleErrorView.printGameMaxRoundInputErrorMsg()
+            }
+        }
+
     }
 
 }
