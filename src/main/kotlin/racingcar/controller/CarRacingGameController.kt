@@ -25,17 +25,15 @@ class CarRacingGameController {
     }
 
     private fun createCarsFromInput() : List<Car>{
-        var cars : List<Car> = mutableListOf()
-        try {
-            consoleOutputView.printCarNameInputMessage()
-            val carNames = consoleInputView.getCarNames()
-            cars = carRacingGameFactory.createCars(carNames)
-
-        } catch (e : IllegalArgumentException){
-            consoleErrorView.printCarNamesInputErrorMsg()
-            createCarsFromInput()
+        while (true){
+            try {
+                consoleOutputView.printCarNameInputMessage()
+                val carNames = consoleInputView.getCarNames()
+                return carRacingGameFactory.createCars(carNames)
+            } catch (e : IllegalArgumentException){
+                consoleErrorView.printCarNamesInputErrorMsg()
+            }
         }
-        return cars
     }
 
     private fun createGameMaxRoundFromInput() : CarRacingGameMaxRound {
