@@ -10,7 +10,7 @@ class CarRacingGame(
 
     fun calculateRoundResult() : List<CarRacingGameRoundResult>{
         for (i in 1 .. maxGameRound.carGameMaxRound){
-            val roundResult = CarRacingGameRoundResult(i, cars)
+            val roundResult = CarRacingGameRoundResult(i, cars, CAR_MOVE_CONDITION)
             carRacingGameResults.add(roundResult)
         }
         return carRacingGameResults
@@ -23,5 +23,9 @@ class CarRacingGame(
             }
         }
         return null
+    }
+
+    companion object {
+        private const val CAR_MOVE_CONDITION = 4
     }
 }
