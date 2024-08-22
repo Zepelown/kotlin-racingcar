@@ -8,7 +8,7 @@ import racingcar.model.CarRacingGameMaxRound
 class CarRacingGameMaxRoundValidateTest {
     @ParameterizedTest
     @ValueSource(strings = ["`","@","-","a","한"])
-    fun `숫자가 아닌 값을 입력한 경우`(input: String){
+    fun `게임 횟수 입력엔 숫자가 아닌 값을 입력할 수 없다`(input: String){
         assertThrows<IllegalArgumentException> {
             CarRacingGameMaxRound(input)
         }
@@ -16,7 +16,7 @@ class CarRacingGameMaxRoundValidateTest {
 
     @ParameterizedTest
     @ValueSource(strings = ["0","1.1","-1"])
-    fun `자연수를 입력하지 않은 경우`(input: String){
+    fun `게임 횟수 입력엔 자연수 이외의 수를 입력할 수 없다`(input: String){
         assertThrows<IllegalArgumentException> {
             CarRacingGameMaxRound(input)
         }
