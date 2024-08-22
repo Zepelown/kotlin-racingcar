@@ -17,9 +17,9 @@ class CarRacingGame(
     }
 
     fun getWinners() : List<String>?{
-        carRacingGameResults.forEach {
-            if (it.round == maxGameRound.carGameMaxRound){
-                return it.getWinners()
+        carRacingGameResults.forEach {roundResult ->
+            if (roundResult.round == maxGameRound.carGameMaxRound){
+                return roundResult.getWinners()
             }
         }
         return null
