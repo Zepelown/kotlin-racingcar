@@ -1,4 +1,4 @@
-package racingcar.model
+package racingcar.model.game
 
 class CarRacingGameMaxRound(
     private val carGameMaxRoundInput: String

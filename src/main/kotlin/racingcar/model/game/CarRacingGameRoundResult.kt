@@ -1,5 +1,6 @@
-package racingcar.model
+package racingcar.model.game
 
+import racingcar.model.Car
 import racingcar.util.RandomNumberGenerator
 
 class CarRacingGameRoundResult(

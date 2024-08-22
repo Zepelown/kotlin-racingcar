@@ -1,11 +1,12 @@
-package racingcar.model
+package racingcar.model.game
+
+import racingcar.model.Car
 
 class CarRacingGame(
     private val cars : List<Car>,
-    private val gameRound : String
+    private val maxGameRound : CarRacingGameMaxRound
 ) {
 
-    private val maxGameRound : CarRacingGameMaxRound = CarRacingGameMaxRound(gameRound)
     private val carRacingGameResults : MutableList<CarRacingGameRoundResult> = mutableListOf()
 
     fun calculateRoundResult() : List<CarRacingGameRoundResult>{

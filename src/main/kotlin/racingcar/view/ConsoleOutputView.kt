@@ -1,6 +1,6 @@
 package racingcar.view
 
-import racingcar.model.CarRacingGameRoundResult
+import racingcar.model.game.CarRacingGameRoundResult
 
 
 class ConsoleOutputView {
